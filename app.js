@@ -1,8 +1,10 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const userRouter = require("./routes/userRoutes");
 dotenv.config({ path: "./.env" });
 const app = express();
+app.use("/user", userRouter);
 const DB = process.env.DATABASE.replace(
   "<db_password>",
   process.env.DATABASE_PASSWORD
